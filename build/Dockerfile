@@ -14,7 +14,7 @@ RUN go mod download
 
 ENV CGO_ENABLED=0
 # Compile static binary
-RUN go build -ldflags "-s -w" ./cmd/app
+RUN go build -ldflags "-s -w" ./cmd/pipeline
 
 ##################################################
 # Final image
