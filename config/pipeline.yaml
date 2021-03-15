@@ -34,7 +34,7 @@ logger:
 
 tracer:
   jaeger:
-    agent_address: ${TRACER_AGENT_ADDRESS:tempo-tempo-distributed-ingester.monitoring:6831}
+    agent_address: ${TRACER_AGENT_ADDRESS:tempo-tempo-distributed-distributor.monitoring:6831}
     service_name: pipeline
     sampler_type: const
     flush_interval: ""
