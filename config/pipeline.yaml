@@ -1,0 +1,40 @@
+http:
+  address: ${HTTP_ADDRESS:0.0.0.0:4195}
+
+input:
+  generate:
+    interval: '@every 10s'
+    mapping: 'root = {"content": "a very relevant message"}'
+  processors:
+  - type: trace_id
+
+pipeline:
+  processors:
+  - log:
+      level: INFO
+      message: "message"
+      fields:
+        payload: '${! json() }'
+        traceID: '${! meta("trace_id") }'
+
+output:
+  stdout: {}
+
+metrics:
+  prometheus:
+    prefix: pipeline
+
+logger:
+  prefix: pipeline
+  level: ${LOGLEVEL:INFO}
+  add_timestamp: true
+  format: logfmt
+  static_fields:
+    '@service': pipeline
+
+tracer:
+  jaeger:
+    agent_address: ${TRACER_AGENT_ADDRESS:tempo-tempo-distributed-ingester.monitoring:6831}
+    service_name: pipeline
+    sampler_type: const
+    flush_interval: ""
