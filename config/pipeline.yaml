@@ -4,7 +4,7 @@ http:
 input:
   generate:
     interval: '@every 10s'
-    mapping: 'root = {"content": "a very relevant message"}'
+    mapping: 'root = {"content": "a very relevant message", "version": "0.1.1"}'
   processors:
   - type: trace_id
 
