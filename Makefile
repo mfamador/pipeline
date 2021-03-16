@@ -1,6 +1,6 @@
 REPO=marcoamador
 NAME=pipeline
-VERSION=0.1.2
+VERSION=0.1.4
 
 all: docker
 clean: docker-clean
