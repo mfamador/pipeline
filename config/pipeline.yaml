@@ -4,7 +4,7 @@ http:
 input:
   generate:
     interval: '@every 10s'
-    mapping: 'root = {"content": "a very relevant message", "version": "1.0.0"}'
+    mapping: 'root = {"content": "a message using benthos v3", "version": "1.0.0"}'
   processors:
   - type: trace_id
 
